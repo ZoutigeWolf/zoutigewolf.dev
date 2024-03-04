@@ -34,6 +34,12 @@ function App() {
                     <Data name={"description"} value={"Computer Science Student"} indentLevel={1}/>
                     <List name={"projects"} indentLevel={1}>
                         <Object indentLevel={2}>
+                            <Data name={"name"} value={"Jonko Tracker"} indentLevel={3}/>
+                            <Data name={"when"} value={"WIP"} indentLevel={3}/>
+                            <Data name={"type"} value={"Personal Project"} indentLevel={3}/>
+                            <Link name={"github"} value={"https://github.com/ZoutigeWolf/JonkoTrackerAPI"} indentLevel={3}/>
+                        </Object>
+                        <Object indentLevel={2}>
                             <Data name={"name"} value={"Viscon Support App"} indentLevel={3}/>
                             <Data name={"when"} value={"Late 2023 - Early 2024"} indentLevel={3}/>
                             <Data name={"type"} value={"School Project"} indentLevel={3}/>
