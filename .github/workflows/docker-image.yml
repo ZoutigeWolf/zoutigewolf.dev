@@ -11,22 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract Version from package.json
-        id: package-version
-        run: |
-            VERSION=$(node -e "console.log(require('./package.json').version)")
-            echo "Version extracted from package.json: $VERSION"
-            echo "::set-output name=tag::$VERSION"
-
-      - run: echo ${{ steps.package-version.outputs.tag }}
-
       - uses: actions/checkout@v4
 
+      - name: Get NPM version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - run: echo ${{ steps.package-version.outputs.current-version}}
+
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag portfolio:${{ steps.package-version.outputs.tag }}
+        run: docker build . --file Dockerfile --tag portfolio:${{ steps.package-version.outputs.current-version}}
 
       - name: Build and push to local registry
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: registry.zoutigewolf.dev/portfolio/portfolio:${{ steps.package-version.outputs.tag }}
+          tags: registry.zoutigewolf.dev/portfolio/portfolio:${{ steps.package-version.outputs.current-version}}
