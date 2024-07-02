@@ -28,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.REGISTRY_URL }}/portfolio/portfolio:${{ steps.package-version.outputs.current-version}}
+          tags: ${{ secrets.REGISTRY_URL }}/portfolio:${{ steps.package-version.outputs.current-version}}
