@@ -29,7 +29,7 @@ jobs:
       - name: Restart docker container
         uses: JamesIves/fetch-api-data-action@v2
         with:
-          endpoint: ${{ secrets.SERVER_API_URL }}/portfolio?key=${{ secrets.SERVER_API_KEY }}
+          endpoint: ${{ secrets.RESTART_URL }}
           configuration: |
             {
               "method": "POST"
